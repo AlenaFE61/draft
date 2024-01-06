@@ -333,7 +333,19 @@ document.querySelectorAll('.nav a').forEach(function(navLink) {
     event.preventDefault();
   });
 });
+document.querySelectorAll('.nav a').forEach(function(navLink) {
+  navLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    var headerOffset = document.querySelector('.header').offsetHeight;
+    var sectionId = navLink.getAttribute('href').substring(1);
+    var section = document.getElementById(sectionId);
 
+    if (section) {
+      var sectionTop = section.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+    }
+  });
+});
     </script>
     
 
