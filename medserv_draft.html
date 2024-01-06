@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webinar Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .content {
+    flex: 1;
+  }
+
+  .header, .footer {
+    background-color: #385f84;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  .footer {
+    flex-shrink: 0;
+  }
+  .main-content {
+    text-align: center;
+    padding-top: 94px;
+  }
+  .section {
+    padding: 40px 0;
+  }
+  .section:nth-child(1),
+  .section:nth-child(4) {
+    background-color: #f0f0f0;
+  }
+  .section h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  .section p{
+    color: black;
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  .footer p {
+    color: white;
+  }
+  .button {
+    background-color: #22CFCF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+  .button:hover {
+    background-color: #1BA9A9;
+  }
+  .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #385f84;
+  color: white;
+  padding-left: 100px;
+    padding-right: 100px;
+    /* padding-top: 30px; */
+    padding-bottom: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* Логотип матиме фіксовану ширину, щоб гарантувати місце */
+.header .logo {
+  flex: 0 0 120px; /* Задає фіксовану ширину для логотипу */
+  color: yellow;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left; /* Вирівнювання логотипу по лівому краю */
+}
+
+/* Заголовок буде займати всі доступне місце і вирівнюватися по центру */
+.header h1 {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 1.5em; /* Або інший розмір шрифту, що підходить */
+}
+
+/* Перемикач мови буде мати фіксовану ширину, але може розширюватись при необхідності */
+.header .language-switcher {
+  flex: 0 0 120px; /* Задає фіксовану ширину для перемикача мов */
+  text-align: right; /* Вирівнювання перемикача мов по правому краю */
+}
+#language-select{
+border-radius: 10px;
+width: 50px;
+    height: 30px;
+}
+.blue{
+  background-color: lightblue;
+}
+.contact-info p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.contact-info p span {
+  margin-right: 8px;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally in the container */
+  justify-content: center; /* Center items vertically in the container */
+  text-align: center; /* Center text within each <p> tag */
+  padding: 20px;
+}
+
+.contact-info p {
+  margin: 10px 0; /* Adds space between phone and email */
+}
+
+/* Ensure the <a> tags are displayed inline with their labels */
+.contact-info a {
+  color: #0000EE; /* Default link color, can be changed as needed */
+  text-decoration: none; /* Removes underline from links */
+}
+
+.contact-info a:hover,
+.contact-info a:focus {
+  text-decoration: underline; /* Adds underline on hover/focus for better accessibility */
+}
+.nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav li {
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 0 15px; /* Забезпечує достатньо місця між пунктами меню */
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Плавні переходи для кольору та тіні тексту */
+}
+
+.nav li:hover, .nav .active {
+    color: #FFF; /* Зміна кольору тексту при наведенні */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Додає видимість жирності через тінь */
+    /* Видалення transform: scaleX та font-weight змін */
+}
+        li{color: white;
+        }
+        .nav li.active {
+    border: 1px solid white; /* або інший стиль рамки, який вам подобається */
+}
+.nav a {
+    text-decoration: none; /* Видаляє підкреслення з усіх посилань у меню */
+    color: white; /* Задає колір тексту посилань, можна змінити на потрібний */
+}
+
+.active-section {
+  border: 5px solid #34347b;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); /* Додаємо тінь для ефекту глибини */
+  transform: translate3d(0, -10px, 0); /* Піднімаємо секцію для 3D вигляду */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Плавний перехід для ефектів */
+}
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">LOGO</div> <!-- Логотип -->
+    <ul class="nav">
+      <a href="#section1"><li class="active" data-lang-ua="Головна" data-lang-en="Home">Головна</li></a>
+      <a href="#section2"><li data-lang-ua="Методологія" data-lang-en="Methodology">Методологія</li></a>
+      <a href="#section3"><li data-lang-ua="Eкспертиза" data-lang-en="Expertise">Eкспертиза</li></a>
+      <a href="#section4"><li data-lang-ua="Контакти" data-lang-en="Contacts">Контакти</li></a>
+   
+    </ul>
+    <div class="language-switcher">
+      <select id="language-select" onchange="changeLanguage()">
+        <option value="ua">UA</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="content">
+    <div class="main-content">
+      <div class="section" id="section1">
+        <h2 data-lang-ua="Ласкаво просимо до [Назва Компанії]" data-lang-en="Welcome to [Company Name] ">Ласкаво просимо</h2>
+        <p data-lang-ua="Вашого надійного партнера у світі медичних технологій та обладнання. Наша місія – допомогти медичним установам в Україні та за її межами забезпечити найвищу якість догляду за пацієнтами, використовуючи передові медичні рішення.
+
+        Завдяки глибоким знанням ринку та технічній експертизі, наші консультанти готові вас підтримати у кожному аспекті вибору, закупівлі, та впровадження медичного обладнання. Від планування бюджету до післяпродажного обслуговування – ми забезпечуємо всебічну підтримку, щоб ви могли повністю зосередитися на наданні якісних медичних послуг.
+        
+        Наш підхід оснований на прозорості, інноваційності та відданості потребам наших клієнтів. Віримо, що разом ми можемо досягти виняткових результатів та поліпшити якість медичного обслуговування."
+         data-lang-en="Your trusted partner in the world of medical technologies and equipment. Our mission is to assist medical institutions in Ukraine and beyond to provide the highest quality of patient care using cutting-edge medical solutions.
+
+        With deep market knowledge and technical expertise, our consultants are ready to support you in every aspect of selection, procurement, and implementation of medical equipment. From budget planning to post-sales service – we provide comprehensive support so you can fully focus on delivering quality medical services.
+        
+        Our approach is based on transparency, innovation, and commitment to our clients' needs. We believe that together we can achieve exceptional results and improve the quality of medical care.
+        
+        Thank you for choosing [Company Name]. We look forward to the opportunity to work with you!">Вашого надійного партнера у світі медичних технологій та обладнання. Наша місія – допомогти медичним установам в Україні та за її межами забезпечити найвищу якість догляду за пацієнтами, використовуючи передові медичні рішення.
+
+        Завдяки глибоким знанням ринку та технічній експертизі, наші консультанти готові вас підтримати у кожному аспекті вибору, закупівлі, та впровадження медичного обладнання. Від планування бюджету до післяпродажного обслуговування – ми забезпечуємо всебічну підтримку, щоб ви могли повністю зосередитися на наданні якісних медичних послуг.
+        
+        Наш підхід оснований на прозорості, інноваційності та відданості потребам наших клієнтів. Віримо, що разом ми можемо досягти виняткових результатів та поліпшити якість медичного обслуговування.</p>
+      </div>
+      <div class="section">
+        <h2 data-lang-ua="Стратегічний пошук медичного обладнання" data-lang-en="Strategic Medical Equipment Sourcing">Стратегічний пошук медичного обладнання</h2>
+        <p data-lang-ua="Статистика свідчить, що приватні клініки придбають однакове обладнання вдвічі дешевше, ніж державні. Хочете максимізувати ефективність ваших витрат на обладнання? Обирайте якісне обладнання без непотрібних витрат. Не втрачайте тижні на пошук ціни без гарантії результату – довіртеся нашим експертам. Один бренд – це не панацея. Проаналізуйте реальні технічні характеристики та відгуки про всі пропозиції на ринку. Отримайте ідеальні умови для контролюючих органів, громадських організацій, справедливу оцінку та обґрунтування бюджету для вашої закупівлі. Опції не повинні коштувати як сам апарат. Ми надаємо обґрунтовані ціни, як за комплексне рішення, так і за окремі апгрейди та опції, такі як флуоресцентні камери для ендоскопії, кардіологічні пакети для КТ, безгелієві технології для МРТ, моторизація мобільних рентгенів, додаткові датчики для УЗД та інше. Ви завжди зможете пишатися результатами ваших медичних закупівель у соціальних мережах, демонструючи їх у порівнянні з менш справедливими результатами інших за аналогічне обладнання. Перевірте вашого звичайного постачальника. Ми змусимо його запропонувати вам справедливу ціну. Перевірте медичний заклад у вашому місті. Чи дійсно бюджет витрачається справедливо та адекватно? Ми забезпечимо, щоб гроші вашої громади працювали на повну під час військового часу та для майбутньої нової Європейської України!" 
+        data-lang-en="Statistics show that private clinics purchase the same equipment at half the price compared to state hospitals. Want to maximize the efficiency of your equipment spending? Choose quality equipment without unnecessary expenses. Don't waste weeks searching for a price without a guarantee of results – trust our experts. One brand is not a cure-all. Analyze the actual technical specifications and reviews of all market offerings. Get ideal conditions for regulatory bodies, public organizations, a fair assessment, and justification of the budget for your procurement. Options should not cost as much as the device itself. We provide reasoned prices for both comprehensive solutions and individual upgrades and options, such as fluorescent cameras for endoscopy, cardiology packages for CT scans, helium-free technologies for MRI, motorization of mobile X-rays, additional sensors for ultrasound, and more. You can always be proud of the results of your medical purchases on social media, demonstrating them compared to less fair outcomes of others for similar equipment. Check your regular supplier. We will make them offer you a fair price. Check the medical facility in your city. Is the budget really being spent fairly and adequately? We will ensure that your community's funds work to their fullest during wartime and for the future of a new European Ukraine!">Статистика свідчить, що приватні клініки придбають однакове обладнання вдвічі дешевше, ніж державні. Хочете максимізувати ефективність ваших витрат на обладнання? Обирайте якісне обладнання без непотрібних витрат. Не втрачайте тижні на пошук ціни без гарантії результату – довіртеся нашим експертам. Один бренд – це не панацея. Проаналізуйте реальні технічні характеристики та відгуки про всі пропозиції на ринку. Отримайте ідеальні умови для контролюючих органів, громадських організацій, справедливу оцінку та обґрунтування бюджету для вашої закупівлі. Опції не повинні коштувати як сам апарат. Ми надаємо обґрунтовані ціни, як за комплексне рішення, так і за окремі апгрейди та опції, такі як флуоресцентні камери для ендоскопії, кардіологічні пакети для КТ, безгелієві технології для МРТ, моторизація мобільних рентгенів, додаткові датчики для УЗД та інше. Ви завжди зможете пишатися результатами ваших медичних закупівель у соціальних мережах, демонструючи їх у порівнянні з менш справедливими результатами інших за аналогічне обладнання. Перевірте вашого звичайного постачальника. Ми змусимо його запропонувати вам справедливу ціну. Перевірте медичний заклад у вашому місті. Чи дійсно бюджет витрачається справедливо та адекватно? Ми забезпечимо, щоб гроші вашої громади працювали на повну під час військового часу та для майбутньої нової Європейської України!</p>
+      </div>
+      <div class="section blue" id="section2">
+        <h2 data-lang-ua="Наша методологія унікальна" data-lang-en="Our methodology is unique">Наша методологія унікальна</h2>
+        <p data-lang-ua="Ми аналізуємо існуючі умови та порівнюємо їх з умовами в минулому або сьогоденні, намагаючись знайти найбільш ідентичний випадок за заданими критеріями, умовами оплати, та застосуванням. Ми надаємо відповіді без допомоги третіх осіб, значно швидше, оперативніше, та ефективніше. Це підхід, який не використовується іншими." 
+        data-lang-en="We analyze the current conditions and compare them with those of the past or present, striving to find the most identical case based on the given criteria, payment terms, and application. We provide answers without the help of third parties, much faster, more efficiently, and effectively. This approach is not used by others."></p>
+        <p data-lang-ua="Більшість аналізів на ринку базуються на запитах до його учасників, які:" data-lang-en="Most market analyses are based on inquiries to its participants, who are:"></p>
+        <p data-lang-ua="1. зацікавлені;" data-lang-en="1. interested;"></p>
+        <p data-lang-ua="2. монополізовані;" data-lang-en="2. monopolized;"></p>
+        <p data-lang-ua="3. обмежені;" data-lang-en="3. limited;"></p>
+        <p data-lang-ua="4. неадекватні;" data-lang-en="4. inadequate;"></p>
+        <p data-lang-ua="5. підготовлені." data-lang-en="5. prepared."></p>
+      </div>
+      <div class="section" id="section3">
+        <h2 data-lang-ua="Наша експертиза" data-lang-en="Our expertise">Наша експертиза</h2>
+        <p data-lang-ua="Наша експертиза базується на публічних джерелах та аналізі прикладів поведінки міжнародного ринку як у минулому, так і в сьогоденні." 
+        data-lang-en="Our expertise is based on public sources and the analysis of examples of international market behavior, both in the past and present.">Різні авторитетні платформи цифрового маркетингу</p>
+      </div>
+
+      <div class="section contact-section" id="section4">
+        <h2 data-lang-ua="Контакти" data-lang-en="Contacts">Контакти</h2>
+        <div class="contact-info">
+          <p>
+            <span data-lang-ua="Телефон:" data-lang-en="Phone:">Телефон:</span>
+            <a class="no-lang-change" href="tel:+380123456789">+380 123 456 789</a>
+          </p>
+          <p>
+            <span data-lang-ua="Електронна пошта:" data-lang-en="Email:">Електронна пошта:</span>
+            <a class="no-lang-change" href="mailto:contact@example.com">contact@example.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <p data-lang-ua="&copy; 2024 [Company Name]" data-lang-en="&copy; 2024 [Company Name]">&copy; 2024 [Company Name]</p>
+  </div>
+  
+
+  <script>
+    // Change language function
+    function changeLanguage() {
+      var language = document.getElementById('language-select').value;
+      var elements = document.querySelectorAll('[data-lang-ua], [data-lang-en]');
+      elements.forEach(function(el) {
+        var text = el.getAttribute('data-lang-' + language);
+        if (text) {
+          el.textContent = text;
+        }
+      });
+      
+      // Update navigation menu language
+      var navElements = document.querySelectorAll('.nav li');
+      navElements.forEach(function(el) {
+        var textUa = el.getAttribute('data-lang-ua');
+        var textEn = el.getAttribute('data-lang-en');
+        el.textContent = language === 'ua' ? textUa : textEn;
+      });
+    }
+    
+    // On window load
+    window.onload = function() {
+      changeLanguage(); // Call change language function on window load
+    };
+
+    document.querySelectorAll('.nav a').forEach(function(navLink) {
+    navLink.addEventListener('click', function() {
+        // Видаляємо клас 'active' у всіх пунктах меню
+        document.querySelectorAll('.nav li').forEach(function(navItem) {
+            navItem.classList.remove('active');
+        });
+
+        // Додаємо клас 'active' до обраного пункту меню
+        this.querySelector('li').classList.add('active');
+    });
+});
+
+
+document.querySelectorAll('.nav a').forEach(function(navLink) {
+  navLink.addEventListener('click', function(event) {
+    // Видаляємо клас 'active-section' з усіх секцій
+    document.querySelectorAll('.section').forEach(function(section) {
+      section.classList.remove('active-section');
+    });
+
+    // Отримуємо ID відповідної секції
+    const sectionId = navLink.getAttribute('href').replace('#', '');
+
+    // Отримуємо секцію, яку потрібно активувати
+    const sectionToActivate = document.getElementById(sectionId);
+
+    // Перевіряємо, чи секція існує
+    if(sectionToActivate) {
+      // Додаємо клас 'active-section' до відповідної секції
+      sectionToActivate.classList.add('active-section');
+    } else {
+      // Якщо секції не існує, не блокуємо стандартну прокрутку
+      return;
+    }
+    
+    // Скролимо до секції
+    sectionToActivate.scrollIntoView({ behavior: 'smooth' });
+
+    // Видаляємо стандартну поведінку якоря лише якщо секція існує
+    event.preventDefault();
+  });
+});
+
+    </script>
+    
+
+</body>
+</html>
