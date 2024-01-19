@@ -567,6 +567,7 @@ function toggleMenu() {
 
 document.querySelectorAll('.nav a').forEach(function(navLink) {
   navLink.addEventListener('click', function(event) {
+
     document.querySelectorAll('.section').forEach(function(section) {
       section.classList.remove('active-section');
     });
