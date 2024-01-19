@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webinar Landing Page</title>
+<title>MDB</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   html, body {
@@ -19,50 +19,11 @@
   .content {
     flex: 1;
   }
-
   .header, .footer {
     background-color: #385f84;
     color: white;
     padding: 20px;
     text-align: center;
-  }
-  .footer {
-    flex-shrink: 0;
-  }
-  .main-content {
-    text-align: center;
-    padding-top: 94px;
-  }
-  .section {
-    padding: 40px 0;
-  }
-  .section:nth-child(3),
-  .section:nth-child(6) {
-    background-color: #f0f0f0;
-  }
-  .section h2 {
-    color: #333;
-    font-size: 24px;
-  }
-  .general_text{
-    color: black;
-    padding-left: 200px;
-    padding-right: 200px;
-  }
-  .footer p {
-    color: white;
-  }
-  .button {
-    background-color: #22CFCF;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px 0;
-    border-radius: 4px;
-  }
-  .button:hover {
-    background-color: #1BA9A9;
   }
   .header {
     display: flex;
@@ -101,6 +62,39 @@
     width: 50px;
     height: 30px;
   }
+  .main-content {
+    text-align: center;
+    padding-top: 94px;
+  }
+  .section {
+    padding: 40px 0;
+  }
+  .section:nth-child(3),
+  .section:nth-child(6) {
+    background-color: #f0f0f0;
+  }
+  .section h2 {
+    color: #333;
+    font-size: 24px;
+  }
+  .general_text{
+    color: black;
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  .button {
+    background-color: #22CFCF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+  .button:hover {
+    background-color: #1BA9A9;
+  }
+
   .blue{
     background-color: lightblue;
   }
@@ -182,6 +176,7 @@
     color: black;
     padding-left: 50px;
     padding-right: 50px;
+    text-align: justify;
   }
   .active-section p{
     padding: 0px;
@@ -190,41 +185,193 @@
     padding: 0px;
   }
   .section img {
-  display: block; /* це усуне додатковий простір під картинкою, який може з'являтися через inline властивості елемента img */
-  margin: 0; /* усуває зовнішні відступи */
+  display: block;
+  margin: 0; 
 }
 
-/* Усунення відступів для всіх елементів всередині .section, якщо вони є */
 .section * {
   margin: 0;
   padding: 0;
 }
 .logo-container {
   display: flex;
-  flex-direction: column; /* Це змусить елементи у контейнері розташовуватися один під одним */
-  justify-content: center; /* Центрування елементів по вертикалі */
+  flex-direction: column; 
+  justify-content: center; 
 
 }
 
 .logo {
-  margin: 0; /* Убрати відступи для елементів logo */
+  margin: 0; 
 }
+.hamburger-menu {
+    display: none;
+  
+  }
+  .nav2{
+    display: none;
+  }
+  #section1{
+    padding: 100px 200px;
+  }
+  .half-section p{
+padding: 0px 20px;
+}
+.half-section .title_helf{
+padding-bottom: 40px;
+padding-top: 40px;
+}
+.close-menu {
+  display: none; 
+  position: absolute;
+  top: 20px; 
+  left: 20px;
+  font-size: 30px; 
+  color: white; 
+  cursor: pointer;
+}
+.footer {
+    flex-shrink: 0;
+  }
+  .footer p {
+    color: white;
+  }
 
+  @media (max-width: 1200px) {
+    .header {
+      padding-left: 50px;
+    padding-right: 50px;
+    }
+    .nav li {
+    padding: 10px 2px;
+    margin: 0 10px;
+}
+#section1{
+  padding: 50px 100px;
+}
+ }
 
-
-  @media (max-width: 768px) {
-    .split-section {
+  @media (max-width: 1000px) {
+.header .logo {
+    font-size: 18px;
+}
+.split-section {
       flex-direction: column;
     }
+    .split-section {
+    align-items: normal;
+}
+.half-section p{
+padding: 0px 20px;
+}
+.half-section .title_helf{
+padding-bottom: 20px;
+padding-left: 20px;
+padding-right: 20px;
+}
   }
+
+  @media (max-width: 768px) {
+    .general_text{
+      text-align: justify;
+    }
+    #section1 {
+    padding: 40px 40px;
+}
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative; 
+    z-index: 20; 
+  }
+  .hamburger-menu .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+  .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #385f84;
+    z-index: 15;
+    padding-top: 60px;
+  }
+
+  .nav.show {
+    display: flex;
+  }
+
+  .nav li {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  }
+
+  .nav li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 21; 
+  }
+  .hamburger-menu.cross .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 8px);
+}
+
+.hamburger-menu.cross .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.cross .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(11px, -12px);
+}
+.full-width-image img {
+    height: 400px;
+  }
+}
+@media (max-width: 480px) {
+  .full-width-image img {
+    height: 300px;
+  }
+  .header .language-switcher {
+    flex: 0 0 80px;
+    text-align: center;
+}
+.header {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#section1 {
+    padding: 40px 20px;
+}
+}
+
 </style>
 </head>
 <body>
 
   <div class="header">
     <div class="logo-container">
-    <div class="logo" data-lang-ua="МДБ" data-lang-en="MDB">MDB</div> <!-- Логотип -->
-    <div class="logo" style="position: relative;top:-10px;" data-lang-ua="МЕД БЮДЖЕТ" data-lang-en="MED BUDGET">MDB</div> <!-- Логотип -->
+    <div class="logo" data-lang-ua="МДБ" data-lang-en="MDB">MDB</div> 
+    <div class="logo" style="position: relative;top:-10px;" data-lang-ua="МЕД БЮДЖЕТ" data-lang-en="MED BUDGET">MDB</div>
     </div>
 
     <ul class="nav">
@@ -240,17 +387,31 @@
         <option value="en">EN</option>
       </select>
     </div>
+    
+    <div class="hamburger-menu">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <ul class="nav2">
+      <a href="#section1" onclick="changeLanguage('ua')"><li data-lang-ua="Головна" data-lang-en="Home">Головна</li></a>
+      <a href="#section3" onclick="changeLanguage('ua')"><li data-lang-ua="Консалтинг" data-lang-en="Consulting">Консалтинг</li></a>
+      <a href="#section2" onclick="changeLanguage('ua')"><li data-lang-ua="Методологія" data-lang-en="Methodology">Методологія</li></a>
+      <a href="#section4" onclick="changeLanguage('ua')"><li data-lang-ua="Контакти" data-lang-en="Contacts">Контакти</li></a>
+    </ul>
+
   </div>
   <div class="content">
     <div class="main-content">
    <div class="wrapp">
   <div class="full-width-image">
-    <img src="5.webp" alt="Опис зображення" style="width:100%; height:600px; object-fit: cover;">
+  <img  class="full_img" src="5.webp" alt="Опис зображення">
   </div>
 
 
-      <div class="section" id="section1" style="padding: 100px 200px;">
-        <h2 data-lang-ua="Ласкаво просимо до МДБ" data-lang-en="Welcome to MDB ">Ласкаво просимо</h2>
+      <div class="section" id="section1" >
+        <h2 style="padding-bottom: 20px;" data-lang-ua="Ласкаво просимо до МДБ" data-lang-en="Welcome to MDB ">Ласкаво просимо</h2>
         <p class="general_text" data-lang-ua="Вашого надійного партнера у світі медичних технологій та обладнання. Наша місія – допомогти медичним установам в Україні та за її межами забезпечити найвищу якість догляду за пацієнтами, використовуючи передові медичні рішення.
 
         Завдяки глибоким знанням ринку та технічній експертизі, наші консультанти готові вас підтримати у кожному аспекті вибору, закупівлі, та впровадження медичного обладнання. Від планування бюджету до післяпродажного обслуговування – ми забезпечуємо всебічну підтримку, щоб ви могли повністю зосередитися на наданні якісних медичних послуг.
@@ -273,30 +434,34 @@
           <img src="2.jpg" alt="Опис зображення для секції 2" style="width:100%; height:auto;">
         </div>
         <div class="half-section" >
-        <h2 data-lang-ua="Стратегічний пошук медичного обладнання" data-lang-en="Strategic Medical Equipment Sourcing">Стратегічний пошук медичного обладнання</h2>
-        <p class="text" style="padding: 20px 40px;" data-lang-ua="Статистика свідчить, що приватні клініки придбають однакове обладнання вдвічі дешевше, ніж державні. Хочете максимізувати ефективність ваших витрат на обладнання? Обирайте якісне обладнання без непотрібних витрат. Не втрачайте тижні на пошук ціни без гарантії результату – довіртеся нашим експертам. Один бренд – це не панацея. Проаналізуйте реальні технічні характеристики та відгуки про всі пропозиції на ринку. Отримайте ідеальні умови для контролюючих органів, громадських організацій, справедливу оцінку та обґрунтування бюджету для вашої закупівлі. Опції не повинні коштувати як сам апарат. Ми надаємо обґрунтовані ціни, як за комплексне рішення, так і за окремі апгрейди та опції, такі як флуоресцентні камери для ендоскопії, кардіологічні пакети для КТ, безгелієві технології для МРТ, моторизація мобільних рентгенів, додаткові датчики для УЗД та інше. Ви завжди зможете пишатися результатами ваших медичних закупівель у соціальних мережах, демонструючи їх у порівнянні з менш справедливими результатами інших за аналогічне обладнання. Перевірте вашого звичайного постачальника. Ми змусимо його запропонувати вам справедливу ціну. Перевірте медичний заклад у вашому місті. Чи дійсно бюджет витрачається справедливо та адекватно? Ми забезпечимо, щоб гроші вашої громади працювали на повну під час військового часу та для майбутньої нової Європейської України!" 
+        <h2 class="title_helf" data-lang-ua="Стратегічний пошук медичного обладнання" data-lang-en="Strategic Medical Equipment Sourcing">Стратегічний пошук медичного обладнання</h2>
+        <p class="text" data-lang-ua="Статистика свідчить, що приватні клініки придбають однакове обладнання вдвічі дешевше, ніж державні. Хочете максимізувати ефективність ваших витрат на обладнання? Обирайте якісне обладнання без непотрібних витрат. Не втрачайте тижні на пошук ціни без гарантії результату – довіртеся нашим експертам. Один бренд – це не панацея. Проаналізуйте реальні технічні характеристики та відгуки про всі пропозиції на ринку. Отримайте ідеальні умови для контролюючих органів, громадських організацій, справедливу оцінку та обґрунтування бюджету для вашої закупівлі. Опції не повинні коштувати як сам апарат. Ми надаємо обґрунтовані ціни, як за комплексне рішення, так і за окремі апгрейди та опції, такі як флуоресцентні камери для ендоскопії, кардіологічні пакети для КТ, безгелієві технології для МРТ, моторизація мобільних рентгенів, додаткові датчики для УЗД та інше. Ви завжди зможете пишатися результатами ваших медичних закупівель у соціальних мережах, демонструючи їх у порівнянні з менш справедливими результатами інших за аналогічне обладнання. Перевірте вашого звичайного постачальника. Ми змусимо його запропонувати вам справедливу ціну. Перевірте медичний заклад у вашому місті. Чи дійсно бюджет витрачається справедливо та адекватно? Ми забезпечимо, щоб гроші вашої громади працювали на повну під час військового часу та для майбутньої нової Європейської України!" 
         data-lang-en="Statistics show that private clinics purchase the same equipment at half the price compared to state hospitals. Want to maximize the efficiency of your equipment spending? Choose quality equipment without unnecessary expenses. Don't waste weeks searching for a price without a guarantee of results – trust our experts. One brand is not a cure-all. Analyze the actual technical specifications and reviews of all market offerings. Get ideal conditions for regulatory bodies, public organizations, a fair assessment, and justification of the budget for your procurement. Options should not cost as much as the device itself. We provide reasoned prices for both comprehensive solutions and individual upgrades and options, such as fluorescent cameras for endoscopy, cardiology packages for CT scans, helium-free technologies for MRI, motorization of mobile X-rays, additional sensors for ultrasound, and more. You can always be proud of the results of your medical purchases on social media, demonstrating them compared to less fair outcomes of others for similar equipment. Check your regular supplier. We will make them offer you a fair price. Check the medical facility in your city. Is the budget really being spent fairly and adequately? We will ensure that your community's funds work to their fullest during wartime and for the future of a new European Ukraine!">Статистика свідчить, що приватні клініки придбають однакове обладнання вдвічі дешевше, ніж державні. Хочете максимізувати ефективність ваших витрат на обладнання? Обирайте якісне обладнання без непотрібних витрат. Не втрачайте тижні на пошук ціни без гарантії результату – довіртеся нашим експертам. Один бренд – це не панацея. Проаналізуйте реальні технічні характеристики та відгуки про всі пропозиції на ринку. Отримайте ідеальні умови для контролюючих органів, громадських організацій, справедливу оцінку та обґрунтування бюджету для вашої закупівлі. Опції не повинні коштувати як сам апарат. Ми надаємо обґрунтовані ціни, як за комплексне рішення, так і за окремі апгрейди та опції, такі як флуоресцентні камери для ендоскопії, кардіологічні пакети для КТ, безгелієві технології для МРТ, моторизація мобільних рентгенів, додаткові датчики для УЗД та інше. Ви завжди зможете пишатися результатами ваших медичних закупівель у соціальних мережах, демонструючи їх у порівнянні з менш справедливими результатами інших за аналогічне обладнання. Перевірте вашого звичайного постачальника. Ми змусимо його запропонувати вам справедливу ціну. Перевірте медичний заклад у вашому місті. Чи дійсно бюджет витрачається справедливо та адекватно? Ми забезпечимо, щоб гроші вашої громади працювали на повну під час військового часу та для майбутньої нової Європейської України!</p>
+      <br>
+      <br>
       </div>
   
     </div>
       <div class="section blue split-section" id="section2">
         <div class="half-section">
-        <h2 data-lang-ua="Наша методологія унікальна" data-lang-en="Our methodology is unique">Наша методологія унікальна</h2>
-        <p style="padding: 20px 40px;" data-lang-ua="Ми аналізуємо існуючі умови та порівнюємо їх з умовами в минулому або сьогоденні, намагаючись знайти найбільш ідентичний випадок за заданими критеріями, умовами оплати, та застосуванням. Ми надаємо відповіді без допомоги третіх осіб, значно швидше, оперативніше, та ефективніше. Це підхід, який не використовується іншими." 
+        <h2 class="title_helf" data-lang-ua="Наша методологія унікальна" data-lang-en="Our methodology is unique">Наша методологія унікальна</h2>
+        <p style="text-align: justify;" data-lang-ua="Ми аналізуємо існуючі умови та порівнюємо їх з умовами в минулому або сьогоденні, намагаючись знайти найбільш ідентичний випадок за заданими критеріями, умовами оплати, та застосуванням. Ми надаємо відповіді без допомоги третіх осіб, значно швидше, оперативніше, та ефективніше. Це підхід, який не використовується іншими." 
         data-lang-en="We analyze the current conditions and compare them with those of the past or present, striving to find the most identical case based on the given criteria, payment terms, and application. We provide answers without the help of third parties, much faster, more efficiently, and effectively. This approach is not used by others."></p>
-        <p data-lang-ua="Більшість аналізів на ринку базуються на запитах до його учасників, які:" data-lang-en="Most market analyses are based on inquiries to its participants, who are:"></p>
-        <p data-lang-ua="1. зацікавлені;" data-lang-en="1. interested;"></p>
-        <p data-lang-ua="2. монополізовані;" data-lang-en="2. monopolized;"></p>
-        <p data-lang-ua="3. обмежені;" data-lang-en="3. limited;"></p>
-        <p data-lang-ua="4. неадекватні;" data-lang-en="4. inadequate;"></p>
-        <p data-lang-ua="5. підготовлені." data-lang-en="5. prepared."></p>
+        <br><p style="text-align: justify;" data-lang-ua="Більшість аналізів на ринку базуються на запитах до його учасників, які:" data-lang-en="Most market analyses are based on inquiries to its participants, who are:"></p>
+        <br><p style="text-align: justify;" data-lang-ua="1. зацікавлені;" data-lang-en="1. interested;"></p>
+        <p style="text-align: justify;" data-lang-ua="2. монополізовані;" data-lang-en="2. monopolized;"></p>
+        <p style="text-align: justify;" data-lang-ua="3. обмежені;" data-lang-en="3. limited;"></p>
+        <p style="text-align: justify;" data-lang-ua="4. неадекватні;" data-lang-en="4. inadequate;"></p>
+        <p style="text-align: justify;" data-lang-ua="5. підготовлені." data-lang-en="5. prepared."></p>
         <br>
         <div>
-          <h2 data-lang-ua="Наша експертиза" data-lang-en="Our expertise">Наша експертиза</h2>
-          <p style="padding: 20px 40px;" data-lang-ua="Наша експертиза базується на публічних джерелах та аналізі прикладів поведінки міжнародного ринку як у минулому, так і в сьогоденні." 
+          <h2 style="padding-bottom: 20px;" data-lang-ua="Наша експертиза" data-lang-en="Our expertise">Наша експертиза</h2>
+          <p style="text-align: justify;" data-lang-ua="Наша експертиза базується на публічних джерелах та аналізі прикладів поведінки міжнародного ринку як у минулому, так і в сьогоденні." 
           data-lang-en="Our expertise is based on public sources and the analysis of examples of international market behavior, both in the past and present.">Різні авторитетні платформи цифрового маркетингу</p>
       </div>
     </div>
+    <br>
+    
    
       <div class="half-section">
         <img src="5.jpg" alt="Опис зображення для секції 3" style="width:100%; height:auto;">
@@ -328,47 +493,80 @@
   
 
   <script>
-    // Change language function
-    function changeLanguage() {
-      var language = document.getElementById('language-select').value;
-      var elements = document.querySelectorAll('[data-lang-ua], [data-lang-en]');
-      elements.forEach(function(el) {
-        var text = el.getAttribute('data-lang-' + language);
-        if (text) {
-          el.textContent = text;
-        }
-      });
-      
-      // Update navigation menu language
-      var navElements = document.querySelectorAll('.nav li');
-      navElements.forEach(function(el) {
-        var textUa = el.getAttribute('data-lang-ua');
-        var textEn = el.getAttribute('data-lang-en');
-        el.textContent = language === 'ua' ? textUa : textEn;
-      });
+function changeLanguage() {
+  var language = document.getElementById('language-select').value;
+  var elements = document.querySelectorAll('[data-lang-ua], [data-lang-en]');
+  elements.forEach(function(el) {
+    var text = el.getAttribute('data-lang-' + language);
+    if (text) {
+      el.textContent = text;
     }
-    
-    // On window load
-    window.onload = function() {
-      changeLanguage(); // Call change language function on window load
-    };
+  });
 
-    document.querySelectorAll('.nav a').forEach(function(navLink) {
-    navLink.addEventListener('click', function() {
-        // Видаляємо клас 'active' у всіх пунктах меню
-        document.querySelectorAll('.nav li').forEach(function(navItem) {
-            navItem.classList.remove('active');
-        });
+  // Закриття гамбургер-меню, якщо воно відкрите
+  var navMenu = document.querySelector('.nav');
+  if (navMenu.classList.contains('show')) {
+    navMenu.classList.remove('show');
+  }
+  
+  // Оновлення мови меню навігації
+  var navElements = document.querySelectorAll('.nav li');
+  navElements.forEach(function(el) {
+    var textUa = el.getAttribute('data-lang-ua');
+    var textEn = el.getAttribute('data-lang-en');
+    el.textContent = language === 'ua' ? textUa : textEn;
+  });
+}
 
-        // Додаємо клас 'active' до обраного пункту меню
-        this.querySelector('li').classList.add('active');
-    });
+// Відкриття та закриття гамбургер-меню
+document.querySelector('.hamburger-menu').addEventListener('click', function() {
+  document.querySelector('.nav').classList.toggle('show');
+  this.classList.toggle('cross');
 });
 
+// Обробник кліків для пунктів меню
+document.querySelectorAll('.nav li').forEach(function(navItem) {
+  navItem.addEventListener('click', function() {
+    document.querySelectorAll('.nav li').forEach(function(navItem) {
+      navItem.classList.remove('active');
+    });
+    this.classList.add('active');
+    document.querySelector('.nav').classList.remove('show');
+    var hamburger = document.querySelector('.hamburger-menu');
+    if (hamburger.classList.contains('cross')) {
+      hamburger.classList.remove('cross');
+    }
+  });
+});
+
+// Встановлення обраних значень мови після завантаження сторінки
+window.onload = function() {
+  changeLanguage(); 
+};
+
+
+
+// Переключення меню для мобыльних пристроїв
+function toggleMenu() {
+  var navMenu = document.querySelector('.nav');
+  var closeIcon = document.querySelector('.close-menu');
+  
+  navMenu.classList.toggle('show');
+
+  if (navMenu.classList.contains('show')) {
+    closeIcon.style.display = 'block';
+  } else {
+    closeIcon.style.display = 'none';
+  }
+}
+
+
+
+
+//Навыгацыя по рощділам сайту
 
 document.querySelectorAll('.nav a').forEach(function(navLink) {
   navLink.addEventListener('click', function(event) {
-    // Видаляємо клас 'active-section' з усіх секцій
     document.querySelectorAll('.section').forEach(function(section) {
       section.classList.remove('active-section');
     });
